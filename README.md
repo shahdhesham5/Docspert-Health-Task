@@ -110,7 +110,6 @@ Ensure you have the following installed:
 ## Running Tests
   **Run tests**:
     ```sh
-        docker-compose exec -it django_bank python manage.py test
-
+      docker-compose exec -it django_bank python manage.py test
     ```
 
