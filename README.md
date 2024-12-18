@@ -9,12 +9,12 @@ This is a Django-based web application for a basic banking system that allows us
 - **View Accounts**: Displays a list of all accounts.
   ![View Accounts](images/accounts.png)
 - **Account Details**: Viewing account details including all transaction related to this account.
-  ![Perform Transactions](images/account\details.png)
+  ![Perform Transactions](images/details.png)
   
 - **Perform Transactions**: Enables transferring funds between accounts.
   ![Perform Transactions](images/transaction.png)
 - **Transactions History**: Viewing all transferring funds between accounts.
-  ![Perform Transactions](images/transactions\history.png)
+  ![Perform Transactions](images/history.png)
 
   
 ## Requirements
