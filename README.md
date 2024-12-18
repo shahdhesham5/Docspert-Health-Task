@@ -8,10 +8,15 @@ This is a Django-based web application for a basic banking system that allows us
   ![Upload CSV Form](images/upload.png)
 - **View Accounts**: Displays a list of all accounts.
   ![View Accounts](images/accounts.png)
+- **Account Details**: Viewing account details including all transaction related to this account.
+  ![Perform Transactions](images/account\details.png)
+  
 - **Perform Transactions**: Enables transferring funds between accounts.
   ![Perform Transactions](images/transaction.png)
+- **Transactions History**: Viewing all transferring funds between accounts.
+  ![Perform Transactions](images/transactions\history.png)
 
-
+  
 ## Requirements
 
 - Python 3.10
@@ -34,33 +39,45 @@ Ensure you have the following installed:
 1. **Clone the repository**:
 
     ```sh
-    git clone https://github.com/shahdhesham5/Account-transfer-task.git
-    cd Account trans
+    git clone https://github.com/shahdhesham5/Docspert-Health-Task.git
+    cd Account-transfer-task
     ```
 
-2. **Create a `.env` file**:
+2. **Create a `.env` file and venv **:
 
     Create a `.env` file in the project root directory with the following content:
 
     ```env
-    POSTGRES_DB=postgresdb
-    POSTGRES_USER=postgres
-    POSTGRES_PASSWORD=1234
-    ```
+    DB_HOST=db
+    DB_NAME=postgresdb
+    DB_USER=postgres
+    DB_PASSWORD=1234
+    DB_PORT=5432
+    
+    # Django settings
+    DEBUG=True
+    ALLOWED_HOSTS=localhost,127.0.0.1,0.0.0.0
 
-3. **Build and run the Docker containers**:
+
+    ```
+   Create a virtualenv and activate it:
+   ```sh
+      python3 -m venv venv
+      source venv/bin/activate
+   ```
+4. **Build and run the Docker containers**:
 
     ```sh
     docker-compose up --build
     ```
 
-4. **Create a superuser**:
+5. **Create a superuser**:
 
     ```sh
-    docker-compose exec django_sessionsbank_backend_web python manage.py createsuperuser
+    docker-compose exec django_bank python manage.py createsuperuser
     ```
 
-5. **Run the development server**:
+6. **Run the development server**:
 
     The development server should already be running from the `docker-compose up` command. You can access it at `http://localhost:8000`.
 
@@ -76,6 +93,7 @@ Ensure you have the following installed:
 
 1. Navigate to the "Accounts" page.
 2. All uploaded accounts will be displayed in a table format.
+3. Click on any account name to view all account details.
 
 ### Performing Transactions
 
@@ -83,19 +101,17 @@ Ensure you have the following installed:
 2. Select the source account and the destination account from the dropdown menus.
 3. Enter the amount to be transferred and submit the form.
 
+### Transactions History 
+
+1. Go to the "Transactions History" page.
+2. All transactions detials are displayed.
+
+
 ## Running Tests
-
-The project uses `pytest` and `pytest-django` for testing.
-
-1. **Install testing dependencies**:
+  **Run tests**:
 
     ```sh
-    pip install pytest pytest-django
-    ```
+    docker-compose exec -it django_bank python manage.py test
 
-2. **Run tests**:
-
-    ```sh
-    docker-compose exec -it django_sessionsbank_backend_web pytest
     ```
 
