@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts' %}">Accounts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'transaction' %}">Transactions</a>
+                    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'transactions_history' %}">Transactions History</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    {% block content %}
+    {% endblock %}
+
+<!-- Background Styling -->
+<style>
+    body {
+        background: url('{% static "images/G.png" %}') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .cus_tbl {
+        margin-top: 20px;
+    }
+
+    .heading {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .t1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+</style>
+</body>
+</html>

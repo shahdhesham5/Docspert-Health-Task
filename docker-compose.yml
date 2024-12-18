@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:13
+    container_name: django_bank_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - .env
+
+  web:
+    build: .
+    container_name: django_bank
+    command: >
+      sh -c "
+             python /AccountTrans/manage.py collectstatic --noinput &&
+             python /AccountTrans/manage.py makemigrations --no-input &&
+             python /AccountTrans/manage.py migrate --no-input &&
+             python /AccountTrans/manage.py runserver 0.0.0.0:8000
+            "
+    volumes:
+      - .:/AccountTrans
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

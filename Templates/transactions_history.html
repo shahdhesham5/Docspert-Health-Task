@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Banking System</h2>
+    <h3 class="text-center mb-4">Transactions History</h3>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th> Transaction No.</th>
+                    <th> From Account</th>
+                    <th> To Account</th>
+                    <th> Balance</th>
+                    <th> Transaction Date</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for trans in transactions %}
+                <tr>
+                    <td>{{ trans.id }}</td>
+                    <td>{{ trans.from_account }}</td>
+                    <td>{{ trans.to_account }}</td>
+                    <td>{{ trans.amount }}</td>
+                    <td>{{ trans.date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

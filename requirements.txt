@@ -1,0 +1,12 @@
+Django==4.2.5
+django-import-export==4.0.3
+djangorestframework==3.14.0
+docker==5.0.3
+docker-compose==1.29.2
+dockerpty==0.4.1
+Pillow==9.0.1
+psycopg2-binary>=2.8
+dj-database-url>=0.5.0
+pytz==2018.4
+psycopg2-binary==2.9.6
+
